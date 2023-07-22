@@ -1,4 +1,4 @@
-# Finetuning of Falcon-7B LLM using QLoRA on Mental Health Dataset
+# Finetuning of Falcon-7B LLM using QLoRA on Mental Health Conversational Dataset
 
 ## Introduction:
 Mental health issues are often misunderstood or not fully grasped by the general public. This lack of understanding can lead to fear, discomfort, and negative perceptions about mental health conditions. Media portrayals of mental health often perpetuate negative stereotypes, leading to misconceptions and fear. Overcoming mental health stigma requires a multi-faceted approach that involves education, raising awareness, promoting empathy and understanding, challenging stereotypes, and ensuring accessible and quality mental health care.
