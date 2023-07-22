@@ -22,6 +22,11 @@ NOTE: _Try changing hyperparameters in TrainingArguments and LoraConfig based on
 PEFT fine-tuned model has been updated here: [heliosbrahma/falcon-7b-finetuned-mental-health-conversational](https://huggingface.co/heliosbrahma/falcon-7b-finetuned-mental-health-conversational). You can directly load the model using the following settings:<br>
 ```python
 query = "<MENTION YOUR QUERY>"
+
+import torch
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, GenerationConfig
+from peft import PeftConfig, PeftModel
+
 PEFT_MODEL = "heliosbrahma/falcon-7b-finetuned-mental-health-conversational"
 
 bnb_config = BitsAndBytesConfig(
