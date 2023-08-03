@@ -9,7 +9,7 @@ Chatbots offer a readily available and accessible platform for individuals seeki
 NOTE: _It is important to note that while mental health chatbots can be helpful, they are not a replacement for professional mental health care. They can complement existing mental health services by providing additional support and resources._
 
 ## Dataset:
-Dataset was curated from online FAQs related to mental health, popular healthcare blogs like WebMD and Healthline, and other wiki articles related to mental health. The dataset was pre-processed in a conversational format such that both questions asked by the patient and responses given by the doctor are in the same text. The dataset for this mental health conversational AI can be found here: [heliosbrahma/mental_health_conversational_dataset](https://huggingface.co/datasets/heliosbrahma/mental_health_conversational_dataset).<br><br>
+Dataset was curated from online FAQs related to mental health, popular healthcare blogs like WebMD and Healthline, and other wiki articles related to mental health. The dataset was pre-processed in a conversational format such that both questions asked by the patient and responses given by the doctor are in the same text. The dataset for this mental health conversational AI can be found here: [heliosbrahma/mental_health_chatbot_dataset](https://huggingface.co/datasets/heliosbrahma/mental_health_chatbot_dataset).<br><br>
 NOTE: _All questions and answers have been anonymized to remove any PII data and preprocessed to remove any unwanted characters._
 
 ## Model Finetuning:
@@ -19,7 +19,7 @@ Adding here the training loss metrics tracking report from WandB monitoring logs
 NOTE: _Try changing hyperparameters in TrainingArguments and LoraConfig based on your requirements. With the settings mentioned in notebook, I achieved 0.42 training loss after 180 steps._
 
 ## Model Inference:
-PEFT fine-tuned model has been updated here: [heliosbrahma/falcon-7b-finetuned-mental-health-conversational](https://huggingface.co/heliosbrahma/falcon-7b-finetuned-mental-health-conversational). You can directly load the model using the following settings:<br>
+PEFT fine-tuned model has been updated here: [heliosbrahma/falcon-7b-sharded-bf16-finetuned-mental-health-conversational](https://huggingface.co/heliosbrahma/falcon-7b-sharded-bf16-finetuned-mental-health-conversational). You can directly load the model using the following settings:<br>
 ```python
 query = "<MENTION YOUR QUERY>"
 
