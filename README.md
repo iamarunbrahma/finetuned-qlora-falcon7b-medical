@@ -19,41 +19,7 @@ Adding here the training loss metrics tracking report from WandB monitoring logs
 NOTE: _Try changing hyperparameters in TrainingArguments and LoraConfig based on your requirements. With the settings mentioned in notebook, I achieved 0.031 training loss after 320 steps._
 
 ## Model Inference:
-PEFT fine-tuned model has been updated here: [heliosbrahma/falcon-7b-sharded-bf16-finetuned-mental-health-conversational](https://huggingface.co/heliosbrahma/falcon-7b-sharded-bf16-finetuned-mental-health-conversational). You can directly load the model using the following settings:<br>
-```python
-query = "<MENTION YOUR QUERY>"
-
-import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, GenerationConfig
-from peft import PeftConfig, PeftModel
-
-PEFT_MODEL = "heliosbrahma/falcon-7b-finetuned-mental-health-conversational"
-
-bnb_config = BitsAndBytesConfig(
-    load_in_4bit=True,
-    bnb_4bit_quant_type="nf4",
-    bnb_4bit_use_double_quant=True,
-    bnb_4bit_compute_dtype=torch.float16,
-)
-config = PeftConfig.from_pretrained(PEFT_MODEL)
-peft_base_model = AutoModelForCausalLM.from_pretrained(
-    config.base_model_name_or_path,
-    return_dict=True,
-    quantization_config=bnb_config,
-    device_map="auto",
-    trust_remote_code=True,
-)
-peft_model = PeftModel.from_pretrained(peft_base_model, PEFT_MODEL)
-
-peft_tokenizer = AutoTokenizer.from_pretrained(config.base_model_name_or_path)
-peft_tokenizer.pad_token = peft_tokenizer.eos_token
-
-peft_encoding = peft_tokenizer(query, return_tensors="pt").to(device)
-peft_outputs = peft_model.generate(input_ids=peft_encoding.input_ids, generation_config=GenerationConfig(max_new_tokens=200, pad_token_id = peft_tokenizer.eos_token_id, eos_token_id = peft_tokenizer.eos_token_id, attention_mask = peft_encoding.attention_mask, temperature=0.7, top_p=0.7, num_return_sequences=1,))
-peft_text_output = peft_tokenizer.decode(peft_outputs[0], skip_special_tokens=True)
-print(peft_text_output)
-```
-It takes less than 3 minutes to generate the model response. The response will be more structured and give a better response than the response generated from the base model.
+PEFT fine-tuned model has been updated here: [heliosbrahma/falcon-7b-sharded-bf16-finetuned-mental-health-conversational](https://huggingface.co/heliosbrahma/falcon-7b-sharded-bf16-finetuned-mental-health-conversational). Run `gradio_chatbot_app.ipynb` notebook to get a chatbot like interface using Gradio as frontend for demo. Play around with different hyperparameter config settings for answer generation and run multiple queries to check for the quality of generated response. It takes less than 3 minutes to generate the model response. Compare the PEFT model response with the original model response in `funetuned_qlora_falcon7b.ipynb` notebook.
 
 ## Conclusion:
 I have written a detailed technical blog explaining key concepts of QLoRA and PEFT fine-tuning method: [Fine-tuning of Falcon-7B Large Language Model using QLoRA on Mental Health Dataset](https://medium.com/@iamarunbrahma/fine-tuning-of-falcon-7b-large-language-model-using-qlora-on-mental-health-dataset-aa290eb6ec85). If you still have any queries, you can open an issue on this repo or comment on my blog.
