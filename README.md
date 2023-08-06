@@ -19,7 +19,10 @@ Adding here the training loss metrics tracking report from WandB monitoring logs
 NOTE: _Try changing hyperparameters in TrainingArguments and LoraConfig based on your requirements. With the settings mentioned in notebook, I achieved 0.031 training loss after 320 steps._
 
 ## Model Inference:
-PEFT fine-tuned model has been updated here: [heliosbrahma/falcon-7b-sharded-bf16-finetuned-mental-health-conversational](https://huggingface.co/heliosbrahma/falcon-7b-sharded-bf16-finetuned-mental-health-conversational). Run `gradio_chatbot_app.ipynb` notebook to get a chatbot like interface using Gradio as frontend for demo. Play around with different hyperparameter config settings for answer generation and run multiple queries to check for the quality of generated response. It takes less than 3 minutes to generate the model response. Compare the PEFT model response with the original model response in `funetuned_qlora_falcon7b.ipynb` notebook.
+PEFT fine-tuned model has been updated here: [heliosbrahma/falcon-7b-sharded-bf16-finetuned-mental-health-conversational](https://huggingface.co/heliosbrahma/falcon-7b-sharded-bf16-finetuned-mental-health-conversational). <br>
+Run `gradio_chatbot_app.ipynb` notebook to get a chatbot like interface using Gradio as frontend for demo. Play around with different hyperparameter config settings for answer generation and run multiple queries to check for the quality of generated response. 
+
+It takes less than 3 minutes to generate the model response. Compare the PEFT model response with the original model response in `funetuned_qlora_falcon7b.ipynb` notebook.
 
 ## Conclusion:
 I have written a detailed technical blog explaining key concepts of QLoRA and PEFT fine-tuning method: [Fine-tuning of Falcon-7B Large Language Model using QLoRA on Mental Health Dataset](https://medium.com/@iamarunbrahma/fine-tuning-of-falcon-7b-large-language-model-using-qlora-on-mental-health-dataset-aa290eb6ec85). If you still have any queries, you can open an issue on this repo or comment on my blog.
