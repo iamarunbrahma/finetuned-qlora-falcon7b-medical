@@ -30,4 +30,4 @@ It takes less than 3 minutes to generate the model response. Compare the PEFT mo
 ## Conclusion:
 I have written a detailed technical blog explaining key concepts of QLoRA and PEFT fine-tuning method: [Fine-tuning of Falcon-7B Large Language Model using QLoRA on Mental Health Dataset](https://medium.com/@iamarunbrahma/fine-tuning-of-falcon-7b-large-language-model-using-qlora-on-mental-health-dataset-aa290eb6ec85). If you still have any queries, you can open an issue on this repo or comment on my blog.
 
-_If you like this project, please star this repository :)_
+_If you like this project, please :star: this repository_.
